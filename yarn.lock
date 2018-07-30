@@ -604,7 +604,7 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@types/next@latest":
+"@types/next@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@types/next/-/next-6.1.0.tgz#fc5062c42e01570c4cac9c1d83294829bd0b2e2e"
   dependencies:
@@ -627,6 +627,12 @@
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
   dependencies:
     csstype "^2.2.0"
+
+"@types/styled-jsx@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@types/styled-jsx/-/styled-jsx-2.2.3.tgz#c97ed7ad8d7b4e6ffbe84e2d4c24a49eb1b9fe54"
+  dependencies:
+    "@types/react" "*"
 
 "@zeit/next-typescript@1.1.0":
   version "1.1.0"
@@ -3202,11 +3208,18 @@ react-dom@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-ga@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.3.tgz#0f447c73664c069a5fc341f6f431262e3d4c23c4"
+  optionalDependencies:
+    prop-types "^15.6.0"
+    react "^15.6.2 || ^16.0"
+
 react-lifecycles-compat@3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react@^16.4.1:
+"react@^15.6.2 || ^16.0", react@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:
