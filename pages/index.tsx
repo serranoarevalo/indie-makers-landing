@@ -19,6 +19,7 @@ class Index extends React.Component<{}, IState> {
     isValid: false,
     submitted: false
   };
+
   render() {
     const { email, isValid, submitted } = this.state;
     return (
@@ -52,6 +53,11 @@ class Index extends React.Component<{}, IState> {
               align-items: flex-start;
               width: 75%;
             }
+            @media screen and (max-width: 820px) {
+              div {
+                width: 100%;
+              }
+            }
             h2,
             h3 {
               background-color: #f2fefe;
@@ -70,10 +76,14 @@ class Index extends React.Component<{}, IState> {
             }
             .emailSection {
               margin-top: 50px;
+              width: 100%;
             }
             .emailSection span {
               font-size: 32px;
               margin-bottom: 50px;
+            }
+            form {
+              width: 100%;
             }
             .emailSection input {
               -webkit-appearance: none;
@@ -114,6 +124,16 @@ class Index extends React.Component<{}, IState> {
               margin-top: 20px;
               display: block;
               font-sise: 25px;
+            }
+            @media screen and (max-width: 699px) {
+              input[type="email"] {
+                display: block;
+                margin-bottom: 20px;
+              }
+              input {
+                width: 100%;
+                min-width: 100% !important;
+              }
             }
           `}
         </style>

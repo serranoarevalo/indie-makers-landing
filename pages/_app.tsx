@@ -188,6 +188,12 @@ class Layout extends React.Component<any> {
               padding-top: 232px;
               line-height: 1.5;
             }
+            @media screen and (max-width: 1200px) {
+              body {
+                padding-left: 50px;
+                padding-right: 50px;
+              }
+            }
           `}
         </style>
       </main>
