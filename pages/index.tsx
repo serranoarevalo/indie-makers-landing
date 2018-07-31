@@ -1,17 +1,26 @@
+import axios from "axios";
 import React, { ChangeEventHandler, FormEventHandler, FormEvent } from "react";
+
+const makeUrl = email => {
+  const MAILCHIMP_URL =
+    "https://nomadcoders.us16.list-manage.com/subscribe/post-json?u=a99b43453db5050f1f26b2744&id=5b047896c0";
+  return `${MAILCHIMP_URL}&EMAIL=${encodeURIComponent(email)}`;
+};
 
 interface IState {
   email: string;
   isValid: boolean;
+  submitted: boolean;
 }
 
 class Index extends React.Component<{}, IState> {
   state = {
     email: "",
-    isValid: false
+    isValid: false,
+    submitted: false
   };
   render() {
-    const { email, isValid } = this.state;
+    const { email, isValid, submitted } = this.state;
     return (
       <div>
         <h2>Build products, together.</h2>
@@ -30,7 +39,9 @@ class Index extends React.Component<{}, IState> {
               type={"email"}
               required={true}
             />
+            <input type={"submit"} value="Go" />
           </form>
+          {submitted && <p className="text">You're in!</p>}
         </div>
         <style jsx>
           {`
@@ -62,7 +73,7 @@ class Index extends React.Component<{}, IState> {
             }
             .emailSection span {
               font-size: 32px;
-              margin-bottom: 30px;
+              margin-bottom: 50px;
             }
             .emailSection input {
               -webkit-appearance: none;
@@ -70,7 +81,7 @@ class Index extends React.Component<{}, IState> {
               border-bottom: 2px solid #95a5a6;
               font-size: 20px;
               min-width: 350px;
-              padding-bottom: 5px;
+              padding: 10px 0;
               font-size: 25px;
               transition: border-color 0.2s linear;
             }
@@ -83,6 +94,26 @@ class Index extends React.Component<{}, IState> {
             }
             .valid:focus {
               border-color: #2ecc71 !important;
+            }
+            .emailSection input[type="submit"] {
+              border: 2px solid #95a5a6;
+              cursor: pointer;
+            }
+            .emailSection input[type="submit"].invalid {
+              color: #95a5a6;
+              cursor: not-allowed;
+            }
+            .invalid:focus ~ input[type="submit"] {
+              border-color: #fef48b !important;
+            }
+            .valid:focus ~ input[type="submit"] {
+              border-color: #2ecc71;
+            }
+            .text {
+              color: #2ecc71;
+              margin-top: 20px;
+              display: block;
+              font-sise: 25px;
             }
           `}
         </style>
@@ -105,8 +136,20 @@ class Index extends React.Component<{}, IState> {
     });
   };
 
-  private _handleSubmit: FormEventHandler = (event: FormEvent) => {
+  private _handleSubmit: FormEventHandler = async (event: FormEvent) => {
     event.preventDefault();
+    const { isValid, email } = this.state;
+    if (isValid) {
+      try {
+        const response = await axios(makeUrl(email));
+      } catch (error) {
+        console.log(error);
+      }
+      this.setState({
+        submitted: true
+      });
+    }
+    return;
   };
 }
 
