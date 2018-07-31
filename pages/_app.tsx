@@ -19,7 +19,7 @@ class Layout extends React.Component<any> {
     return (
       <main>
         <Head>
-          <title>Nomad Coders</title>
+          <title>Indie Makers: Private Beta Sign Up</title>
           <meta charSet="utf-8" />
           <meta
             name="viewport"
@@ -27,10 +27,12 @@ class Layout extends React.Component<any> {
           />
           <meta name="theme-color" content="#f8f5f2" />
           <link rel="manifest" href="static/manifest.json" />
-          <link rel="shortcut icon" href="static/favicon.ico" />
-          <meta name="og:title" content="Nomad Coders" />
-          <meta name="og:image" content="static/ogimage.png" />
-          <meta name="og:description" content="A side project factory" />
+          <meta name="og:title" content="Indie Makers" />
+          <meta
+            name="og:description"
+            content=" Join a community of people building awesome products and learning from
+          each other."
+          />
         </Head>
         {children}
         <style jsx={true} global>

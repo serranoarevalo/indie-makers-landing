@@ -161,7 +161,7 @@ class Index extends React.Component<{}, IState> {
     const { isValid, email } = this.state;
     if (isValid) {
       try {
-        const response = await axios(makeUrl(email));
+        await axios(makeUrl(email));
       } catch (error) {
         console.log(error);
       }
